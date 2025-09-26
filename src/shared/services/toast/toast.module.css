@@ -1,0 +1,21 @@
+.viewport {
+  position: fixed;
+  z-index: 1000;
+  bottom: 12px;
+  left: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toast {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+
+  background: var(--card);
+  box-shadow: 0 4px 14px rgb(0 0 0 / 8%);
+
+  animation: fadeIn 0.2s ease;
+}

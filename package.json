@@ -1,0 +1,43 @@
+{
+  "name": "next-notifications-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "pnpm typecheck && pnpm eslint && pnpm stylelint",
+    "eslint:fix": "eslint '**/*.{js,ts,jsx,tsx}' --fix --ignore-pattern '.next/*' --ignore-pattern 'node_modules'",
+    "stylelint:fix": "stylelint '**/*.css' --fix",
+    "lint:next": "next lint",
+    "typecheck": "tsc --project ./tsconfig.json"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.51.15",
+    "next": "15.5.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@next/eslint-plugin-next": "^15.5.4",
+    "@stylistic/stylelint-plugin": "^4.0.0",
+    "@types/node": "^20.11.17",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.5",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "prettier": "^3.3.3",
+    "stylelint": "^16.23.1",
+    "stylelint-config-clean-order": "^7.0.0",
+    "stylelint-config-standard": "^39.0.0",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^8.39.0"
+  }
+}

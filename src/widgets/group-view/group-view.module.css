@@ -1,0 +1,74 @@
+.wrap {
+  width: 100%;
+}
+
+.header {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+
+  padding: 6px 16px;
+  border-bottom: 1px solid var(--line);
+
+  background: var(--bg);
+}
+
+.title {
+  padding: 16px;
+
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  vertical-align: middle;
+
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 36px;
+}
+
+.empty {
+  padding: 40px 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+.error {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.retryBtn {
+  cursor: pointer;
+
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+
+  background: var(--card);
+}
+
+.back {
+  cursor: pointer;
+  padding: 8px;
+}
+
+.illu {
+  width: 260px;
+  height: 200px;
+  margin: 0 auto 12px;
+}

@@ -1,0 +1,34 @@
+# Dependency directories
+node_modules/
+
+# Build output
+.next/
+out/
+
+# Local environment variables
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Editor/OS specific files
+.idea/
+.DS_Store
+Thumbs.db
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Next.js specific build artifacts (if applicable)
+.next/cache/
+.next/static/
+.next/server/
+
+# Other temporary files
+temp/
+tmp/
+tsconfig.tsbuildinfo

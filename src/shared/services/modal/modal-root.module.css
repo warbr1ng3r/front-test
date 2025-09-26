@@ -1,0 +1,24 @@
+.layer {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 48%);
+  animation: fade .15s ease;
+}
+
+.box {
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  padding: 24px;
+}
+
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
