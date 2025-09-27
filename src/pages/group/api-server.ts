@@ -1,3 +1,5 @@
+import { baseUrl } from '@shared/api';
+
 export async function fetchServerGroup({
   notif_type,
   target_id,
@@ -9,9 +11,8 @@ export async function fetchServerGroup({
   limit: number;
   offest: number;
 }) {
-  const base = 'https://test-api.krascatalog.ru';
   const res = await fetch(
-    `${base}/notifications/group/${notif_type}/${target_id}?limit=${limit}&offset=${offest}`,
+    `${baseUrl}/notifications/group/${notif_type}/${target_id}?limit=${limit}&offset=${offest}`,
     {
       cache: 'no-store',
     },

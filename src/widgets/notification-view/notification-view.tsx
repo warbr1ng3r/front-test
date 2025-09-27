@@ -2,7 +2,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
-import { type FeedItem, NotificationCard } from '@entities/notification/notification-card';
+import { type FeedItem, NotificationCard } from '@entities/notification';
 
 import { DotsIcon } from '@shared/icons/dots';
 import { EmptyIllustration } from '@shared/ui/empty-illustration';

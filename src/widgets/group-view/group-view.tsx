@@ -4,7 +4,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useRef } from 'react';
 
-import { type FeedItem, NotificationCard } from '@entities/notification/notification-card';
+import { type FeedItem, NotificationCard } from '@entities/notification';
 
 import { BackArrowIcon } from '@shared/icons/back-arrow';
 import { EmptyIllustration } from '@shared/ui/empty-illustration';
@@ -43,6 +43,7 @@ export function GroupNotificationsView({
 
   const allItems = useMemo(() => (q.data?.pages ?? []).flatMap((p) => p.items), [q.data]);
   const isEmpty = !q.isLoading && allItems.length === 0;
+  console.log(allItems);
 
   // бесконечная подгрузка
   const ref = useRef<HTMLDivElement | null>(null);

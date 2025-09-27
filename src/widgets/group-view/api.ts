@@ -1,4 +1,28 @@
-import type { FeedItem } from '@entities/notification/notification-card';
+import { FeedItem, GroupedNotification, NotificationItem } from '@entities/notification';
+
+import { timeAgo } from '@shared/lib/time-ago';
+
+export function toFeedItem(
+  x: NotificationItem | GroupedNotification,
+  i: number,
+  offset: number,
+): FeedItem {
+  return {
+    id: `${x.type}:${x.target_id ?? 'none'}:${offset + i}`,
+    target_id: x.target_id || '',
+    type: x.type as FeedItem['type'],
+    text: x.text,
+    time: timeAgo(x.created),
+    author: {
+      name: x.user?.name ?? 'User',
+      username: x.user?.username ?? 'user',
+      avatar: x.user?.avatar || '',
+    },
+    grouped: Array.isArray((x as any).users),
+    groupKey: `${x.type}:${x.target_id ?? ''}`,
+    image: (x as any).image ?? undefined,
+  };
+}
 
 export async function fetchGroup(
   notifType: string,
@@ -7,20 +31,14 @@ export async function fetchGroup(
   offset = 0,
 ): Promise<{ items: FeedItem[]; total: number; limit: number; offset: number }> {
   const res = await fetch(
-    `/api/notifications/group/${encodeURIComponent(notifType)}/${encodeURIComponent(targetId)}?limit=${limit}&offset=${offset}`,
+    `/api/notifications/group/${notifType}/${targetId}?limit=${limit}&offset=${offset}`,
   );
   if (!res.ok) throw new Error('Failed to load group');
 
   const data = await res.json();
-  const items: FeedItem[] = (data.results ?? []).map((x: any, i: number) => ({
-    id: x.id ?? `${x.type}-${x.target_id ?? 'na'}-${offset + i}`,
-    type: x.type,
-    target_id: x.target_id ?? null,
-    user: x.user,
-    text: x.text,
-    created: x.created,
-    image: x.image ?? null,
-  }));
+  const items: FeedItem[] = (data.results ?? []).map((x: any, i: number) =>
+    toFeedItem(x, i, data.offset || 0),
+  );
 
   return {
     items,

@@ -8,19 +8,7 @@ import { useToast } from '@shared/services/toast';
 import { AvatarPair } from '@shared/ui/avatar-pair';
 
 import styles from './notification-card.module.css';
-
-export type FeedItem = {
-  id: string;
-  target_id: string;
-  type: 'comment' | 'like' | 'repost' | 'subscription';
-  text: string;
-  time: string;
-  author: { name: string; username: string; avatar: string };
-  grouped?: boolean;
-  groupKey?: string;
-  image?: string;
-  mentions?: { name: string; username: string; avatar: string }[];
-};
+import { FeedItem } from './types';
 
 export function NotificationCard({ item }: { item: FeedItem }) {
   const { push } = useToast();
@@ -29,6 +17,7 @@ export function NotificationCard({ item }: { item: FeedItem }) {
     push(`Действие ${kind}: ${item.author.name}`);
   }
   const router = useRouter();
+  console.log('item', item);
 
   return (
     <article
@@ -56,7 +45,7 @@ export function NotificationCard({ item }: { item: FeedItem }) {
           <Image
             width={40}
             height={40}
-            src={item.author.avatar}
+            src={item.author.avatar ?? ''}
             alt=""
             className={styles.avatar}
             onError={(e) => {
